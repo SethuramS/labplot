@@ -1,10 +1,11 @@
 /***************************************************************************
-    File                 : CartesianPlot.cpp
-    Project              : LabPlot
-    Description          : Cartesian plot
-    --------------------------------------------------------------------
-    Copyright            : (C) 2011-2018 by Alexander Semke (alexander.semke@web.de)
-    Copyright            : (C) 2016-2017 by Stefan Gerlach (stefan.gerlach@uni.kn)
+	File                 : CartesianPlot.cpp
+	Project              : LabPlot
+	Description          : Cartesian plot
+	--------------------------------------------------------------------
+	Copyright            : (C) 2011-2018 by Alexander Semke (alexander.semke@web.de)
+	Copyright            : (C) 2016-2017 by Stefan Gerlach (stefan.gerlach@uni.kn)
+	Copyright            : (C) 2017-2018 by Garvit Khatri (garvitdelhi@gmail.com)
 
  ***************************************************************************/
 
@@ -1563,11 +1564,11 @@ void CartesianPlot::scaleAutoX() {
 			if (!curve->xColumn())
 				continue;
 
-			const double min = curve->xColumn()->minimum(count);
-			if (min < d->curvesXMin)
+			const double min = curve->getXMinimum();
+			if (d->curvesXMin > min)
 				d->curvesXMin = min;
 
-			const double max = curve->xColumn()->maximum(count);
+			const double max = curve->getXMaximum();
 			if (max > d->curvesXMax)
 				d->curvesXMax = max;
 		}
@@ -1646,11 +1647,13 @@ void CartesianPlot::scaleAutoY() {
 			if (!curve->isVisible())
 				continue;
 
-			if (d->curvesYMin > 0.0)
-				d->curvesYMin = 0.0;
+			const double min = curve->getYMinimum();
+			if (d->curvesYMin > min)
+				d->curvesYMin = min;
 
-			if ( curve->getYMaximum() > d->curvesYMax)
-				d->curvesYMax = curve->getYMaximum();
+			const double max = curve->getYMaximum();
+			if (max > d->curvesYMax)
+				d->curvesYMax = max;
 		}
 
 		d->curvesYMinMaxIsDirty = false;
@@ -1730,13 +1733,14 @@ void CartesianPlot::scaleAuto() {
 			if (!curve->xColumn())
 				continue;
 
-			const double min = curve->xColumn()->minimum(count);
-			if (min < d->curvesXMin)
+			const double min = curve->getXMinimum();
+			if (d->curvesXMin > min)
 				d->curvesXMin = min;
 
-			const double max = curve->xColumn()->maximum(count);
+			const double max = curve->getXMaximum();
 			if (max > d->curvesXMax)
 				d->curvesXMax = max;
+
 		}
 
 		d->curvesXMinMaxIsDirty = false;
@@ -1767,8 +1771,9 @@ void CartesianPlot::scaleAuto() {
 			if (!curve->isVisible())
 				continue;
 
-			if (d->curvesYMin > 0.0)
-				d->curvesYMin = 0.0;
+			const double min = curve->getYMinimum();
+			if (d->curvesYMin > min)
+				d->curvesYMin = min;
 
 			const double max = curve->getYMaximum();
 			if (max > d->curvesYMax)

@@ -493,7 +493,7 @@ void Column::replaceValues(int first, const QVector<double>& new_values) {
  *
  * Use this only when columnMode() is Integer
  */
-void Column::setIntegerAt(int row, const int new_value) {
+void Column::setIntegerAt(int row, const long new_value) {
 	DEBUG("Column::setIntegerAt()");
 	d->statisticsAvailable = false;
 	d->hasValuesAvailable = false;
@@ -506,7 +506,7 @@ void Column::setIntegerAt(int row, const int new_value) {
  *
  * Use this only when columnMode() is Integer
  */
-void Column::replaceInteger(int first, const QVector<int>& new_values) {
+void Column::replaceInteger(int first, const QVector<long>& new_values) {
 	DEBUG("Column::replaceInteger()");
 	if (!new_values.isEmpty()) {
 		d->statisticsAvailable = false;
@@ -722,9 +722,9 @@ double Column::valueAt(int row) const {
 }
 
 /**
- * \brief Return the int value in row 'row'
+ * \brief Return the integer value in row 'row'
  */
-int Column::integerAt(int row) const {
+long Column::integerAt(int row) const {
 	return d->integerAt(row);
 }
 

@@ -518,7 +518,7 @@ void AbstractColumn::replaceValues(int first, const QVector<double>& new_values)
  *
  * Use this only when columnMode() is Integer
  */
-int AbstractColumn::integerAt(int row) const {
+long AbstractColumn::integerAt(int row) const {
 	Q_UNUSED(row);
 	return 42;
 }
@@ -528,7 +528,7 @@ int AbstractColumn::integerAt(int row) const {
  *
  * Use this only when columnMode() is Integer
  */
-void AbstractColumn::setIntegerAt(int row, const int new_value) {
+void AbstractColumn::setIntegerAt(int row, const long new_value) {
 	Q_UNUSED(row) Q_UNUSED(new_value)
 };
 
@@ -537,7 +537,7 @@ void AbstractColumn::setIntegerAt(int row, const int new_value) {
  *
  * Use this only when columnMode() is Integer
  */
-void AbstractColumn::replaceInteger(int first, const QVector<int>& new_values) {
+void AbstractColumn::replaceInteger(int first, const QVector<long>& new_values) {
 	Q_UNUSED(first) Q_UNUSED(new_values)
 }
 

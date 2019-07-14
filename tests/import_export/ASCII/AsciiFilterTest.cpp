@@ -107,15 +107,15 @@ void AsciiFilterTest::testEmptyLines01() {
 	QCOMPARE(spreadsheet.column(1)->columnMode(), AbstractColumn::Integer);
 	QCOMPARE(spreadsheet.column(2)->columnMode(), AbstractColumn::Integer);
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
-	QCOMPARE(spreadsheet.column(1)->integerAt(0), 2);
-	QCOMPARE(spreadsheet.column(1)->integerAt(1), 4);
-	QCOMPARE(spreadsheet.column(1)->integerAt(2), 9);
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 10);
-	QCOMPARE(spreadsheet.column(2)->integerAt(1), 40);
-	QCOMPARE(spreadsheet.column(2)->integerAt(2), 90);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
+	QCOMPARE(spreadsheet.column(1)->integerAt(0), 2L);
+	QCOMPARE(spreadsheet.column(1)->integerAt(1), 4L);
+	QCOMPARE(spreadsheet.column(1)->integerAt(2), 9L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 10L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(1), 40L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(2), 90L);
 }
 
 void AsciiFilterTest::testSparseFile01() {
@@ -140,17 +140,17 @@ void AsciiFilterTest::testSparseFile01() {
 	QCOMPARE(spreadsheet.column(1)->columnMode(), AbstractColumn::Integer);
 	QCOMPARE(spreadsheet.column(2)->columnMode(), AbstractColumn::Integer);
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
 
- 	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1);
- 	QCOMPARE(spreadsheet.column(1)->integerAt(1), 0);
- 	QCOMPARE(spreadsheet.column(1)->integerAt(2), 1);
+ 	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1L);
+ 	QCOMPARE(spreadsheet.column(1)->integerAt(1), 0L);
+ 	QCOMPARE(spreadsheet.column(1)->integerAt(2), 1L);
 
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 2);
-	QCOMPARE(spreadsheet.column(2)->integerAt(1), 2);
-	QCOMPARE(spreadsheet.column(2)->integerAt(2), 0);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 2L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(1), 2L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(2), 0L);
 }
 
 void AsciiFilterTest::testSparseFile02() {
@@ -177,9 +177,9 @@ void AsciiFilterTest::testSparseFile02() {
 	QCOMPARE(spreadsheet.column(1)->columnMode(), AbstractColumn::Numeric);
 	QCOMPARE(spreadsheet.column(2)->columnMode(), AbstractColumn::Numeric);
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
 
  	QCOMPARE(spreadsheet.column(1)->valueAt(0), 1.);
 	QCOMPARE((bool)std::isnan(spreadsheet.column(1)->valueAt(1)), true);
@@ -214,10 +214,10 @@ void AsciiFilterTest::testSparseFile03() {
 	QCOMPARE(spreadsheet.column(1)->columnMode(), AbstractColumn::Numeric);
 	QCOMPARE(spreadsheet.column(2)->columnMode(), AbstractColumn::Numeric);
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
-	QCOMPARE(spreadsheet.column(0)->integerAt(3), 3);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(3), 3L);
 
  	QCOMPARE(spreadsheet.column(1)->valueAt(0), 1.);
 	QCOMPARE(spreadsheet.column(1)->valueAt(1), 2.);
@@ -382,7 +382,7 @@ void AsciiFilterTest::testColumnRange01() {
 	QCOMPARE(spreadsheet.column(3)->columnMode(), AbstractColumn::Numeric);
 
 	//check the values for the first line
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
 	QCOMPARE(spreadsheet.column(1)->valueAt(0), 1.716299);
 	QCOMPARE(spreadsheet.column(2)->valueAt(0), -0.485527);
 	QCOMPARE(spreadsheet.column(3)->valueAt(0), -0.288690);
@@ -434,7 +434,7 @@ void AsciiFilterTest::testColumnRange03() {
 	QCOMPARE(spreadsheet.column(2)->columnMode(), AbstractColumn::Numeric);
 
 	//check the values for the first line
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
 	QCOMPARE(spreadsheet.column(1)->valueAt(0), -0.485527);
 	QCOMPARE(spreadsheet.column(2)->valueAt(0), -0.288690);
 }
@@ -497,7 +497,7 @@ void AsciiFilterTest::testColumnRange06() {
 	QCOMPARE(spreadsheet.columnCount(), 1);
 
 	QCOMPARE(spreadsheet.column(0)->columnMode(), AbstractColumn::Integer);
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
 }
 
 void AsciiFilterTest::testRowRange00() {
@@ -638,18 +638,18 @@ void AsciiFilterTest::testQuotedStrings00() {
 	QCOMPARE(spreadsheet.column(3)->columnMode(), AbstractColumn::Numeric);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(0), QLatin1String("a"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811);
+	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(0), 1.1);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(1), QLatin1String("ab"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(1), 2000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(1), 201812);
+	QCOMPARE(spreadsheet.column(1)->integerAt(1), 2000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(1), 201812L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(1), 1.2);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(2), QLatin1String("abc"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(2), 3000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(2), 201901);
+	QCOMPARE(spreadsheet.column(1)->integerAt(2), 3000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(2), 201901L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(2), 1.3);
 }
 
@@ -683,18 +683,18 @@ void AsciiFilterTest::testQuotedStrings01() {
 
 	//values
 	QCOMPARE(spreadsheet.column(0)->textAt(0), QLatin1String("a"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811);
+	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(0), 1.1);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(1), QLatin1String("ab"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(1), 2000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(1), 201812);
+	QCOMPARE(spreadsheet.column(1)->integerAt(1), 2000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(1), 201812L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(1), 1.2);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(2), QLatin1String("abc"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(2), 3000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(2), 201901);
+	QCOMPARE(spreadsheet.column(1)->integerAt(2), 3000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(2), 201901L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(2), 1.3);
 }
 
@@ -721,8 +721,8 @@ void AsciiFilterTest::testQuotedStrings02() {
 	QCOMPARE(spreadsheet.column(3)->columnMode(), AbstractColumn::Numeric);
 
 	QCOMPARE(spreadsheet.column(0)->textAt(0), QLatin1String("a"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811);
+	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(0), 1.1);
 }
 
@@ -756,8 +756,8 @@ void AsciiFilterTest::testQuotedStrings03() {
 
 	//values
 	QCOMPARE(spreadsheet.column(0)->textAt(0), QLatin1String("a"));
-	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000);
-	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811);
+	QCOMPARE(spreadsheet.column(1)->integerAt(0), 1000L);
+	QCOMPARE(spreadsheet.column(2)->integerAt(0), 201811L);
 	QCOMPARE(spreadsheet.column(3)->valueAt(0), 1.1);
 }
 

@@ -402,6 +402,6 @@ double SimpleFilterColumn::valueAt(int row) const {
 	return m_owner->valueAt(row);
 }
 
-int SimpleFilterColumn::integerAt(int row) const {
+long SimpleFilterColumn::integerAt(int row) const {
 	return m_owner->integerAt(row);
 }

@@ -33,7 +33,7 @@
 
 void CorrelationTest::testLinear() {
 	// data
-	QVector<int> xData = {1,2,3,4};
+	QVector<long> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -86,7 +86,7 @@ void CorrelationTest::testLinear() {
 
 void CorrelationTest::testLinear2() {
 	// data
-	QVector<int> xData = {1, 2, 3};
+	QVector<long> xData = {1, 2, 3};
 	QVector<double> yData = {1.,2.,3.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -184,7 +184,7 @@ void CorrelationTest::testLinear_noX() {
 
 void CorrelationTest::testLinear_swapped() {
 	// data
-	QVector<int> xData = {1,2,3,4};
+	QVector<long> xData = {1,2,3,4};
 	QVector<double> yData = {0,1.,.5};
 	QVector<double> y2Data = {1.,2.,3.,4.};
 
@@ -239,7 +239,7 @@ void CorrelationTest::testLinear_swapped() {
 
 void CorrelationTest::testCircular() {
 	// data
-	QVector<int> xData = {1,2,3,4};
+	QVector<long> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -292,7 +292,7 @@ void CorrelationTest::testCircular() {
 
 void CorrelationTest::testCircular2() {
 	// data
-	QVector<int> xData = {1,2,3};
+	QVector<long> xData = {1,2,3};
 	QVector<double> yData = {1.,2.,3.};
 	QVector<double> y2Data = {0,1.,.5};
 

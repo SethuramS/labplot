@@ -33,7 +33,7 @@
 
 void IntegrationTest::testLinear() {
 	// data
-	QVector<int> xData = {1,2,3,4};
+	QVector<long> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 
 	//data source columns

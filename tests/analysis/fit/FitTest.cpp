@@ -90,7 +90,7 @@ void FitTest::testLinearNorris() {
 
 void FitTest::testLinearPontius() {
 	//NIST data for Pontius dataset
-	QVector<int> xData = {150000,300000,450000,600000,750000,900000,1050000,1200000,1350000,1500000,1650000,1800000,1950000,2100000,
+	QVector<long> xData = {150000,300000,450000,600000,750000,900000,1050000,1200000,1350000,1500000,1650000,1800000,1950000,2100000,
 		2250000,2400000,2550000,2700000,2850000,3000000,150000,300000,450000,600000,750000,900000,1050000,1200000,1350000,1500000,
 		1650000,1800000,1950000,2100000,2250000,2400000,2550000,2700000,2850000,3000000};
 	QVector<double> yData = {.11019,.21956,.32949,.43899,.54803,.65694,.76562,.87487,.98292,1.09146,1.20001,1.30822,1.41599,1.52399,
@@ -144,8 +144,8 @@ void FitTest::testLinearPontius() {
 
 void FitTest::testLinearNoInt1() {
 	//NIST data for NoInt1 dataset
-	QVector<int> xData = {60,61,62,63,64,65,66,67,68,69,70};
-	QVector<int> yData = {130,131,132,133,134,135,136,137,138,139,140};
+	QVector<long> xData = {60,61,62,63,64,65,66,67,68,69,70};
+	QVector<long> yData = {130,131,132,133,134,135,136,137,138,139,140};
 
 	//data source columns
 	Column xDataColumn("x", AbstractColumn::Integer);
@@ -196,8 +196,8 @@ void FitTest::testLinearNoInt1() {
 
 void FitTest::testLinearNoInt1_2() {
 	//NIST data for NoInt1 dataset
-	QVector<int> xData = {60,61,62,63,64,65,66,67,68,69,70};
-	QVector<int> yData = {130,131,132,133,134,135,136,137,138,139,140};
+	QVector<long> xData = {60,61,62,63,64,65,66,67,68,69,70};
+	QVector<long> yData = {130,131,132,133,134,135,136,137,138,139,140};
 
 	//data source columns
 	Column xDataColumn("x", AbstractColumn::Integer);
@@ -245,8 +245,8 @@ void FitTest::testLinearNoInt1_2() {
 
 void FitTest::testLinearNoInt2() {
 	//NIST data for NoInt2 dataset
-	QVector<int> xData = {4,5,6};
-	QVector<int> yData = {3,4,4};
+	QVector<long> xData = {4,5,6};
+	QVector<long> yData = {3,4,4};
 
 	//data source columns
 	Column xDataColumn("x", AbstractColumn::Integer);
@@ -299,8 +299,8 @@ void FitTest::testLinearNoInt2() {
 
 void FitTest::testLinearNoInt2_2() {
 	//NIST data for NoInt2 dataset
-	QVector<int> xData = {4,5,6};
-	QVector<int> yData = {3,4,4};
+	QVector<long> xData = {4,5,6};
+	QVector<long> yData = {3,4,4};
 
 	//data source columns
 	Column xDataColumn("x", AbstractColumn::Integer);
@@ -454,8 +454,8 @@ void FitTest::testLinearFilip() {
 
 void FitTest::testLinearWampler1() {
 	//NIST data for Wampler1 dataset
-	QVector<int> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-	QVector<int> yData = {1,6,63,364,1365,3906,9331,19608,37449,66430,111111,
+	QVector<long> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+	QVector<long> yData = {1,6,63,364,1365,3906,9331,19608,37449,66430,111111,
 		177156,271453,402234,579195,813616,1118481,1508598,2000719,2613660,3368421};
 
 	//data source columns
@@ -504,7 +504,7 @@ void FitTest::testLinearWampler1() {
 
 void FitTest::testLinearWampler2() {
 	//NIST data for Wampler2 dataset
-	QVector<int> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+	QVector<long> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 	QVector<double> yData = {1.00000,1.11111,1.24992,1.42753,1.65984,1.96875,2.38336,2.94117,3.68928,4.68559,
 		6.00000,7.71561,9.92992,12.75603,16.32384,20.78125,26.29536,33.05367,41.26528,51.16209,63.00000};
 
@@ -564,7 +564,7 @@ void FitTest::testLinearWampler2() {
 
 void FitTest::testLinearWampler3() {
 	//NIST data for Wampler3 dataset
-	QVector<int> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+	QVector<long> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 	QVector<double> yData = {760.,-2042.,2111.,-1684.,3888.,1858.,11379.,17560.,39287.,64382.,113159.,
 		175108.,273291.,400186.,581243.,811568.,1121004.,1506550.,2002767.,2611612.,3369180.};
 
@@ -619,8 +619,8 @@ void FitTest::testLinearWampler3() {
 
 void FitTest::testLinearWampler4() {
 	//NIST data for Wampler4 dataset
-	QVector<int> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-	QVector<int> yData = {75901,-204794,204863,-204436,253665,-200894,214131,-185192,221249,-138370,
+	QVector<long> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+	QVector<long> yData = {75901,-204794,204863,-204436,253665,-200894,214131,-185192,221249,-138370,
 		315911,-27644,455253,197434,783995,608816,1370781,1303798,2205519,2408860,3444321};
 
 	//data source columns
@@ -677,8 +677,8 @@ void FitTest::testLinearWampler4() {
 
 void FitTest::testLinearWampler5() {
 	//NIST data for Wampler5 dataset
-	QVector<int> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-	QVector<int> yData = {7590001,-20479994,20480063,-20479636,25231365,-20476094,20489331,-20460392,18417449,-20413570,
+	QVector<long> xData = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+	QVector<long> yData = {7590001,-20479994,20480063,-20479636,25231365,-20476094,20489331,-20460392,18417449,-20413570,
 				20591111,-20302844,18651453,-20077766,21059195,-19666384,26348481,-18971402,22480719,-17866340,10958421};
 
 	//data source columns
@@ -817,9 +817,9 @@ void FitTest::testLinearWP_OLS() {
 
 // from http://sia.webpopix.org/polynomialRegression1.html
 void FitTest::testLinearR_lm2() {
-	QVector<int> xData = {4,4,7,7,8,9,10,10,10,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,
+	QVector<long> xData = {4,4,7,7,8,9,10,10,10,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,
 		17,17,18,18,18,18,19,19,19,20,20,20,20,20,22,23,24,24,24,24,25};
-	QVector<int> yData = {2,10,4,22,16,10,18,26,34,17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,
+	QVector<long> yData = {2,10,4,22,16,10,18,26,34,17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,
                 68,32,48,52,56,64,66,54,70,92,93,120,85};
 
 	//data source columns

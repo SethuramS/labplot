@@ -249,8 +249,8 @@ void AddSubtractValueDialog::generateForColumns() {
 	AbstractColumn::ColumnMode mode = m_columns.first()->columnMode();
 	const int rows = m_spreadsheet->rowCount();
 	if (mode == AbstractColumn::Integer) {
-		QVector<int> new_data(rows);
-		int value = ui.leValue->text().toInt();
+		QVector<long> new_data(rows);
+		int value = ui.leValue->text().toLong();
 
 		switch (m_operation) {
 		case Subtract:
@@ -258,7 +258,7 @@ void AddSubtractValueDialog::generateForColumns() {
 			//fall through
 		case Add:
 			for (auto* col : m_columns) {
-				auto* data = static_cast<QVector<int>* >(col->data());
+				auto* data = static_cast<QVector<long>* >(col->data());
 				for (int i = 0; i<rows; ++i)
 					new_data[i] = data->operator[](i) + value;
 
@@ -267,7 +267,7 @@ void AddSubtractValueDialog::generateForColumns() {
 			break;
 		case Multiply:
 			for (auto* col : m_columns) {
-				auto* data = static_cast<QVector<int>* >(col->data());
+				auto* data = static_cast<QVector<long>* >(col->data());
 				for (int i = 0; i<rows; ++i)
 					new_data[i] = data->operator[](i) * value;
 
@@ -276,7 +276,7 @@ void AddSubtractValueDialog::generateForColumns() {
 			break;
 		case Divide:
 			for (auto* col : m_columns) {
-				auto* data = static_cast<QVector<int>* >(col->data());
+				auto* data = static_cast<QVector<long>* >(col->data());
 				for (int i = 0; i<rows; ++i)
 					new_data[i] = data->operator[](i) / value;
 

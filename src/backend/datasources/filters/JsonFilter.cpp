@@ -351,7 +351,7 @@ void JsonFilterPrivate::setEmptyValue(int column, int row) {
 			static_cast<QVector<double>*>(m_dataContainer[column])->operator[](row) = nanValue;
 			break;
 		case AbstractColumn::Integer:
-			static_cast<QVector<int>*>(m_dataContainer[column])->operator[](row) = 0;
+			static_cast<QVector<qint64>*>(m_dataContainer[column])->operator[](row) = 0;
 			break;
 		case AbstractColumn::DateTime:
 			static_cast<QVector<QDateTime>*>(m_dataContainer[column])->operator[](row) = QDateTime();
@@ -376,8 +376,8 @@ void JsonFilterPrivate::setValueFromString(int column, int row, QString valueStr
 		}
 		case AbstractColumn::Integer: {
 			bool isNumber;
-			const int value = locale.toInt(valueString, &isNumber);
-			static_cast<QVector<int>*>(m_dataContainer[column])->operator[](row) = isNumber ? value : 0;
+			const qint64 value = locale.toLongLong(valueString, &isNumber);
+			static_cast<QVector<qint64>*>(m_dataContainer[column])->operator[](row) = isNumber ? value : 0;
 			break;
 		}
 		case AbstractColumn::DateTime: {
@@ -559,7 +559,7 @@ void JsonFilterPrivate::importData(AbstractDataSource* dataSource, AbstractFileF
 
 	for (int i = 0; i < m_actualRows; ++i) {
 		if (createIndexEnabled)
-			static_cast<QVector<int>*>(m_dataContainer[0])->operator[](i) = i + 1;
+			static_cast<QVector<qint64>*>(m_dataContainer[0])->operator[](i) = i + 1;
 
 		QJsonValue row;
 		switch (containerType) {

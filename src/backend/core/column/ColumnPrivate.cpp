@@ -47,7 +47,7 @@ ColumnPrivate::ColumnPrivate(Column* owner, AbstractColumn::ColumnMode mode) :
 	case AbstractColumn::Integer:
 		m_input_filter = new String2IntegerFilter();
 		m_output_filter = new Integer2StringFilter();
-		m_data = new QVector<int>();
+		m_data = new QVector<qint64>();
 		break;
 	case AbstractColumn::Text:
 		m_input_filter = new SimpleCopyThroughFilter();
@@ -1364,7 +1364,7 @@ void ColumnPrivate::updateProperties() {
 	}
 
 	double prevValue = NAN;
-	int prevValueInt = 0;
+	qint64 prevValueInt = 0;
 	qint64 prevValueDatetime = 0;
 
 	if (m_column_mode == AbstractColumn::Integer)
@@ -1386,11 +1386,10 @@ void ColumnPrivate::updateProperties() {
 	int monotonic_increasing = -1;
 
 	double value;
-	int valueInt;
+	qint64 valueInt;
 	qint64 valueDateTime;
 
 	for (int row = 1; row < rowCount(); row++) {
-
 		if (m_column_mode == AbstractColumn::Integer) {
 			valueInt = integerAt(row);
 

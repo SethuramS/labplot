@@ -863,7 +863,7 @@ public:
 			memcpy(data->data(), bytes.data(), bytes.size());
 			m_private->replaceData(data);
 		} else {
-			auto* data = new QVector<int>(bytes.size()/(int)sizeof(int));
+			auto* data = new QVector<qint64>(bytes.size()/(int)sizeof(qint64));
 			memcpy(data->data(), bytes.data(), bytes.size());
 			m_private->replaceData(data);
 		}

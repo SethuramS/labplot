@@ -33,7 +33,7 @@
 
 void ConvolutionTest::testLinear() {
 	// data
-	QVector<long> xData = {1,2,3,4};
+	QVector<qint64> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -84,7 +84,7 @@ void ConvolutionTest::testLinear() {
 
 void ConvolutionTest::testLinear2() {
 	// data
-	QVector<long> xData = {1,2,3};
+	QVector<qint64> xData = {1,2,3};
 	QVector<double> yData = {1.,2.,3.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -179,7 +179,7 @@ void ConvolutionTest::testLinear_noX() {
 
 void ConvolutionTest::testLinear_swapped() {
 	// data
-	QVector<long> xData = {1,2,3,4};
+	QVector<qint64> xData = {1,2,3,4};
 	QVector<double> yData = {0,1.,.5};
 	QVector<double> y2Data = {1.,2.,3.,4.};
 
@@ -590,7 +590,7 @@ void ConvolutionTest::testLinear_swapped_wrapCenter() {
 
 void ConvolutionTest::testCircular() {
 	// data
-	QVector<long> xData = {1,2,3,4};
+	QVector<qint64> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -639,7 +639,7 @@ void ConvolutionTest::testCircular() {
 
 void ConvolutionTest::testCircular2() {
 	// data
-	QVector<long> xData = {1,2,3};
+	QVector<qint64> xData = {1,2,3};
 	QVector<double> yData = {1.,2.,3.};
 	QVector<double> y2Data = {0,1.,.5};
 
@@ -731,7 +731,7 @@ void ConvolutionTest::testCircular_noX() {
 
 void ConvolutionTest::testCircular_swapped() {
 	// data
-	QVector<long> xData = {1,2,3,4};
+	QVector<qint64> xData = {1,2,3,4};
 	QVector<double> yData = {0,1.,.5};
 	QVector<double> y2Data = {1.,2.,3.,4.};
 

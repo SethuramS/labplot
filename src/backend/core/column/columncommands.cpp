@@ -893,7 +893,7 @@ void ColumnSetValueCmd::undo() {
  * \brief Set the value for a int cell
  ** ***************************************************************************/
 
-ColumnSetIntegerCmd::ColumnSetIntegerCmd(ColumnPrivate* col, int row, long new_value, QUndoCommand* parent)
+ColumnSetIntegerCmd::ColumnSetIntegerCmd(ColumnPrivate* col, int row, qint64 new_value, QUndoCommand* parent)
 	: QUndoCommand(parent), m_col(col), m_row(row), m_new_value(new_value) {
 		DEBUG("ColumnSetIntegerCmd::ColumnSetIntegerCmd()");
 	setText(i18n("%1: set value for row %2", col->name(), row));
@@ -1106,7 +1106,7 @@ void ColumnReplaceValuesCmd::undo() {
  * \brief Replace a range of integers in a int column
  ** ***************************************************************************/
 
-ColumnReplaceIntegersCmd::ColumnReplaceIntegersCmd(ColumnPrivate* col, int first, const QVector<long>& new_values, QUndoCommand* parent)
+ColumnReplaceIntegersCmd::ColumnReplaceIntegersCmd(ColumnPrivate* col, int first, const QVector<qint64>& new_values, QUndoCommand* parent)
 	: QUndoCommand(parent), m_col(col), m_first(first), m_new_values(new_values) {
 	setText(i18n("%1: replace the values for rows %2 to %3", col->name(), first, first + new_values.count() -1));
 }
@@ -1116,7 +1116,7 @@ ColumnReplaceIntegersCmd::ColumnReplaceIntegersCmd(ColumnPrivate* col, int first
  */
 void ColumnReplaceIntegersCmd::redo() {
 	if (!m_copied) {
-		m_old_values = static_cast<QVector<long>*>(m_col->data())->mid(m_first, m_new_values.count());
+		m_old_values = static_cast<QVector<qint64>*>(m_col->data())->mid(m_first, m_new_values.count());
 		m_row_count = m_col->rowCount();
 		m_copied = true;
 	}

@@ -33,7 +33,7 @@
 
 void DifferentiationTest::testLinear() {
 	// data
-	QVector<long> xData = {1,2,3,4};
+	QVector<qint64> xData = {1,2,3,4};
 	QVector<double> yData = {1.,2.,3.,4.};
 
 	//data source columns

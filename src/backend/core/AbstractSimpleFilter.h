@@ -95,7 +95,7 @@ public:
 	QTime timeAt(int row) const override;
 	QDateTime dateTimeAt(int row) const override;
 	double valueAt(int row) const override;
-	long integerAt(int row) const override;
+	qint64 integerAt(int row) const override;
 	void save(QXmlStreamWriter*) const override {};
 	bool load(XmlStreamReader*, bool preview) override {Q_UNUSED(preview); return true;};
 private:

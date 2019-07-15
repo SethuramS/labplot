@@ -240,7 +240,7 @@ private:
 
 class ColumnSetIntegerCmd : public QUndoCommand {
 public:
-	explicit ColumnSetIntegerCmd(ColumnPrivate* col, int row, long new_value, QUndoCommand* parent = nullptr);
+	explicit ColumnSetIntegerCmd(ColumnPrivate* col, int row, qint64 new_value, QUndoCommand* parent = nullptr);
 
 	void redo() override;
 	void undo() override;
@@ -248,8 +248,8 @@ public:
 private:
 	ColumnPrivate* m_col;
 	int m_row;
-	long m_new_value;
-	long m_old_value{0};
+	qint64 m_new_value;
+	qint64 m_old_value{0};
 	int m_row_count{0};
 };
 
@@ -302,7 +302,7 @@ private:
 
 class ColumnReplaceIntegersCmd : public QUndoCommand {
 public:
-	explicit ColumnReplaceIntegersCmd(ColumnPrivate* col, int first, const QVector<long>& new_values, QUndoCommand* parent = nullptr);
+	explicit ColumnReplaceIntegersCmd(ColumnPrivate* col, int first, const QVector<qint64>& new_values, QUndoCommand* parent = nullptr);
 
 	void redo() override;
 	void undo() override;
@@ -310,8 +310,8 @@ public:
 private:
 	ColumnPrivate* m_col;
 	int m_first;
-	QVector<long> m_new_values;
-	QVector<long> m_old_values;
+	QVector<qint64> m_new_values;
+	QVector<qint64> m_old_values;
 	bool m_copied{false};
 	int m_row_count{0};
 };

@@ -191,9 +191,9 @@ public:
 	virtual double valueAt(int row) const;
 	virtual void setValueAt(int row, double new_value);
 	virtual void replaceValues(int first, const QVector<double>& new_values);
-	virtual long integerAt(int row) const;
-	virtual void setIntegerAt(int row, long new_value);
-	virtual void replaceInteger(int first, const QVector<long>& new_values);
+	virtual qint64 integerAt(int row) const;
+	virtual void setIntegerAt(int row, qint64 new_value);
+	virtual void replaceInteger(int first, const QVector<qint64>& new_values);
 	virtual Properties properties() const;
 
 signals:

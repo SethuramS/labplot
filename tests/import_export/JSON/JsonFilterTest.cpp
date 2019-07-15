@@ -67,9 +67,9 @@ void JsonFilterTest::testArrayImport() {
 	QCOMPARE(spreadsheet.column(1)->name(), QLatin1String("Column 1")); //TODO is translatable in JsonFilter
 	QCOMPARE(spreadsheet.column(2)->name(), QLatin1String("Column 2"));
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
 
 	QCOMPARE(spreadsheet.column(1)->textAt(0), QString("2018-06-01"));
 	QCOMPARE(spreadsheet.column(1)->textAt(1), QString("2018-06-02"));
@@ -113,9 +113,9 @@ void JsonFilterTest::testObjectImport01() {
 	QCOMPARE(spreadsheet.column(3)->name(), QLatin1String("3"));
 	QCOMPARE(spreadsheet.column(4)->name(), QLatin1String("4"));
 
-	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1L);
-	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2L);
-	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3L);
+	QCOMPARE(spreadsheet.column(0)->integerAt(0), 1);
+	QCOMPARE(spreadsheet.column(0)->integerAt(1), 2);
+	QCOMPARE(spreadsheet.column(0)->integerAt(2), 3);
 
 	QCOMPARE(spreadsheet.column(1)->valueAt(0), 1.234);
 	QCOMPARE(spreadsheet.column(1)->valueAt(1), 111.);
@@ -290,8 +290,8 @@ void JsonFilterTest::testObjectImport04() {
 	QCOMPARE(spreadsheet.column(4)->valueAt(0), 101.2600);
 	QCOMPARE(spreadsheet.column(4)->valueAt(1), 101.3300);
 
-	QCOMPARE(spreadsheet.column(5)->integerAt(0), 27960L);
-	QCOMPARE(spreadsheet.column(5)->integerAt(1), 127830L);
+	QCOMPARE(spreadsheet.column(5)->integerAt(0), 27960);
+	QCOMPARE(spreadsheet.column(5)->integerAt(1), 127830);
 }
 
 QTEST_MAIN(JsonFilterTest)

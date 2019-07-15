@@ -1394,7 +1394,7 @@ void SpreadsheetView::fillSelectedCellsWithRowNumbers() {
 				break;
 			}
 		case AbstractColumn::Integer: {
-				QVector<long> results(last-first+1);
+				QVector<qint64> results(last-first+1);
 				for (int row = first; row <= last; row++)
 					if (isCellSelected(row, col))
 						results[row-first] = row + 1;
@@ -1438,7 +1438,7 @@ void SpreadsheetView::fillWithRowNumbers() {
 
 	const int rows = m_spreadsheet->rowCount();
 
-	QVector<long> int_data(rows);
+	QVector<qint64> int_data(rows);
 	for (int i = 0; i < rows; ++i)
 		int_data[i] = i + 1;
 
@@ -1488,7 +1488,7 @@ void SpreadsheetView::fillSelectedCellsWithRandomNumbers() {
 				break;
 			}
 		case AbstractColumn::Integer: {
-				QVector<long> results(last-first+1);
+				QVector<qint64> results(last-first+1);
 				for (int row = first; row <= last; row++)
 					if (isCellSelected(row, col))
 						results[row-first] = qrand();
@@ -1563,7 +1563,7 @@ void SpreadsheetView::fillSelectedCellsWithConstValues() {
 	bool intOk = false;
 	bool stringOk = false;
 	double doubleValue = 0;
-	long intValue = 0;
+	qint64 intValue = 0;
 	QString stringValue;
 
 	m_spreadsheet->beginMacro(i18n("%1: fill cells with const values", m_spreadsheet->name()));
@@ -1589,13 +1589,13 @@ void SpreadsheetView::fillSelectedCellsWithConstValues() {
 			}
 			break;
 		case AbstractColumn::Integer:
-			//TODO: getLong() needed!
+			//TODO: getInt64() needed!
 			if (!intOk)
 				intValue = QInputDialog::getInt(this, i18n("Fill the selection with constant value"),
 				                                i18n("Value"), 0, -2147483647, 2147483647, 1, &intOk);
 			if (intOk) {
 				WAIT_CURSOR;
-				QVector<long> results(last-first+1);
+				QVector<qint64> results(last-first+1);
 				for (int row = first; row <= last; row++) {
 					if (isCellSelected(row, col))
 						results[row-first] = intValue;

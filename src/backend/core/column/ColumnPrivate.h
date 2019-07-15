@@ -110,9 +110,9 @@ public:
 	void setValueAt(int row, double new_value);
 	void replaceValues(int first, const QVector<double>&);
 
-	long integerAt(int row) const;
-	void setIntegerAt(int row, long new_value);
-	void replaceInteger(int first, const QVector<long>&);
+	qint64 integerAt(int row) const;
+	void setIntegerAt(int row, qint64 new_value);
+	void replaceInteger(int first, const QVector<qint64>&);
 
 	void updateProperties();
 

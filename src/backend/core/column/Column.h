@@ -107,9 +107,9 @@ public:
 	double valueAt(int) const override;
 	void setValueAt(int, double) override;
 	void replaceValues(int, const QVector<double>&) override;
-	long integerAt(int) const override;
-	void setIntegerAt(int, long) override;
-	void replaceInteger(int, const QVector<long>&) override;
+	qint64 integerAt(int) const override;
+	void setIntegerAt(int, qint64) override;
+	void replaceInteger(int, const QVector<qint64>&) override;
 	Properties properties() const override;
 
 	double maximum(int count = 0) const override;

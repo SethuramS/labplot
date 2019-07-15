@@ -108,7 +108,6 @@ void XYDifferentiationCurvePrivate::recalculate() {
 	QElapsedTimer timer;
 	timer.start();
 
-	DEBUG("OK");
 	//create differentiation result columns if not available yet, clear them otherwise
 	if (!xColumn) {
 		xColumn = new Column("x", AbstractColumn::Numeric);
@@ -130,7 +129,6 @@ void XYDifferentiationCurvePrivate::recalculate() {
 		yVector->clear();
 	}
 
-	DEBUG("OK");
 	// clear the previous result
 	differentiationResult = XYDifferentiationCurve::DifferentiationResult();
 
@@ -153,7 +151,6 @@ void XYDifferentiationCurvePrivate::recalculate() {
 		return;
 	}
 
-	DEBUG("OK");
 	//check column sizes
 	if (tmpXDataColumn->rowCount() != tmpYDataColumn->rowCount()) {
 		differentiationResult.available = true;
@@ -178,8 +175,6 @@ void XYDifferentiationCurvePrivate::recalculate() {
 		xmin = differentiationData.xRange.first();
 		xmax = differentiationData.xRange.last();
 	}
-	DEBUG("	xmin/xmax = " << xmin << ' ' << xmax);
-	DEBUG("	row count = " << tmpXDataColumn->rowCount());
 
 	for (int row = 0; row < tmpXDataColumn->rowCount(); ++row) {
 		//only copy those data where _all_ values (for x and y, if given) are valid

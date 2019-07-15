@@ -561,7 +561,7 @@ void Column::calculateStatistics() const {
 			statistics.minimum = val;
 		if (val > statistics.maximum)
 			statistics.maximum = val;
-		columnSum+= val;
+		columnSum += val;
 		columnSumNeg += (1.0 / val);
 		columnSumSquare += pow(val, 2.0);
 		columnProduct *= val;
@@ -821,8 +821,8 @@ void Column::save(QXmlStreamWriter* writer) const {
 			break;
 		}
 	case AbstractColumn::Integer: {
-			const char* data = reinterpret_cast<const char*>(static_cast< QVector<int>* >(d->data())->constData());
-			size_t size = d->rowCount() * sizeof(int);
+			const char* data = reinterpret_cast<const char*>(static_cast< QVector<qint64>* >(d->data())->constData());
+			size_t size = d->rowCount() * sizeof(qint64);
 			writer->writeCharacters(QByteArray::fromRawData(data, (int)size).toBase64());
 			break;
 		}
@@ -1057,7 +1057,7 @@ bool Column::XmlReadRow(XmlStreamReader* reader) {
 			break;
 		}
 	case AbstractColumn::Integer: {
-			int value = str.toInt(&ok);
+			qint64 value = str.toLongLong(&ok);
 			if (!ok) {
 				reader->raiseError(i18n("invalid row value"));
 				return false;
@@ -1217,9 +1217,9 @@ double Column::minimum(int count) const {
 			break;
 		}
 		case Integer: {
-			auto* vec = static_cast<QVector<int>*>(data());
+			auto* vec = static_cast<QVector<qint64>*>(data());
 			for (int row = start; row < end; ++row) {
-				const int val = vec->at(row);
+				const qint64 val = vec->at(row);
 
 				if (val < min)
 					min = val;
@@ -1289,9 +1289,9 @@ double Column::maximum(int count) const {
 			break;
 		}
 		case Integer: {
-			auto* vec = static_cast<QVector<int>*>(data());
+			auto* vec = static_cast<QVector<qint64>*>(data());
 			for (int row = start; row < end; ++row) {
-				const int val = vec->at(row);
+				const qint64 val = vec->at(row);
 
 				if (val > max)
 					max = val;

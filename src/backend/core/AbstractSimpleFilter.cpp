@@ -218,7 +218,7 @@ double AbstractSimpleFilter::valueAt(int row) const {
  *
  * Use this only when columnMode() is Integer
  */
-int AbstractSimpleFilter::integerAt(int row) const {
+qint64 AbstractSimpleFilter::integerAt(int row) const {
 	return m_inputs.value(0) ? m_inputs.at(0)->integerAt(row) : 0;
 }
 

@@ -2,7 +2,7 @@
     File                 : Double2IntegerFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
     Description          : conversion filter double -> int.
 
  ***************************************************************************/
@@ -39,14 +39,14 @@ class Double2IntegerFilter : public AbstractSimpleFilter {
 public:
 	Double2IntegerFilter() {}
 
-	int integerAt(int row) const override {
+	qint64 integerAt(int row) const override {
 		if (!m_inputs.value(0)) return 0;
 
 		double value = m_inputs.value(0)->valueAt(row);
 
-		int result = 0;
+		qint64 result = 0;
 		if (!std::isnan(value))
-			result = (int)round(value);
+			result = (qint64)round(value);
 		//DEBUG("Double2Integer::integerAt() " << value << " -> " << result);
 
 		return result;

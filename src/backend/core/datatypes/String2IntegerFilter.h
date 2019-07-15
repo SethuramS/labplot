@@ -2,8 +2,8 @@
     File                 : String2IntegerFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
-    Description          : Locale-aware conversion filter QString -> int.
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Description          : Locale-aware conversion filter QString -> integer.
 
  ***************************************************************************/
 
@@ -40,18 +40,18 @@ public:
 	void setNumericLocale(const QLocale& locale) { m_numeric_locale = locale; m_use_default_locale = false; }
 	void setNumericLocaleToDefault() { m_use_default_locale = true; }
 
-	int integerAt(int row) const override {
+	qint64 integerAt(int row) const override {
 		//DEBUG("String2Integer::integerAt()");
 		if (!m_inputs.value(0)) return 0;
 
-		int result;
+		qint64 result;
 		bool valid;
 		QString textValue = m_inputs.value(0)->textAt(row);
 		//DEBUG("	textValue = " << textValue.toStdString());
 		if (m_use_default_locale) // we need a new QLocale instance here in case the default changed since the last call
-			result = QLocale().toInt(textValue, &valid);
+			result = QLocale().toLongLong(textValue, &valid);
 		else
-			result = m_numeric_locale.toInt(textValue, &valid);
+			result = m_numeric_locale.toLongLong(textValue, &valid);
 		//DEBUG("	result = " << result << " valid = " << valid);
 
 		if (valid)

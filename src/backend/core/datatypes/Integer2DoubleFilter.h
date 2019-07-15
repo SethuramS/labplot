@@ -2,8 +2,8 @@
     File                 : Integer2DoubleFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
-    Description          : conversion filter int -> double.
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Description          : conversion filter integer -> double.
 
  ***************************************************************************/
 
@@ -41,7 +41,7 @@ public:
 	double valueAt(int row) const override {
 		if (!m_inputs.value(0)) return 0;
 
-		int value = m_inputs.value(0)->integerAt(row);
+		qint64 value = m_inputs.value(0)->integerAt(row);
 		double result = (double)value;
 		//DEBUG("Integer2Double::integerAt() " << value << " -> " << result);
 

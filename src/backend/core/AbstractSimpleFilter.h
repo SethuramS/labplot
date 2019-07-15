@@ -52,7 +52,7 @@ public:
 	virtual QTime timeAt(int row) const;
 	virtual QDateTime dateTimeAt(int row) const;
 	virtual double valueAt(int row) const;
-	virtual int integerAt(int row) const;
+	virtual qint64 integerAt(int row) const;
 
 	virtual int rowCount() const;
 	virtual QList<Interval<int>> dependentRows(const Interval<int>& inputRange) const;

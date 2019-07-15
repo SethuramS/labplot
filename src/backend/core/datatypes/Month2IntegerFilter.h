@@ -2,7 +2,7 @@
     File                 : Month2IntegerFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
     Description          : Conversion filter QDateTime -> double, translating
                            dates into months (January -> 1).
  ***************************************************************************/
@@ -40,12 +40,12 @@ class Month2IntegerFilter : public AbstractSimpleFilter {
 	Q_OBJECT
 
 public:
-	int integerAt(int row) const override {
+	qint64 integerAt(int row) const override {
 		DEBUG("integerAt()");
 		if (!m_inputs.value(0)) return 0;
 		QDate inputValue = m_inputs.value(0)->dateAt(row);
 		if (!inputValue.isValid()) return 0;
-		return int(inputValue.month());
+		return qint64(inputValue.month());
 	}
 
 	//! Return the data type of the column

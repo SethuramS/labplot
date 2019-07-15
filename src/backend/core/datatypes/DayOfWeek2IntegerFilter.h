@@ -2,7 +2,7 @@
     File                 : DayOfWeek2IntegerFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
     Description          : Conversion filter QDateTime -> int, translating
                            dates into days of the week (Monday -> 1).
 
@@ -37,12 +37,12 @@ class DayOfWeek2IntegerFilter : public AbstractSimpleFilter {
 	Q_OBJECT
 
 public:
-	int integerAt(int row) const override {
-		DEBUG("integerAt()");
+	qint64 integerAt(int row) const override {
+		//DEBUG("integerAt()");
 		if (!m_inputs.value(0)) return 0;
 		QDate date = m_inputs.value(0)->dateAt(row);
 		if (!date.isValid()) return 0;
-		return int(date.dayOfWeek());
+		return qint64(date.dayOfWeek());
 	}
 
 	//! Return the data type of the column

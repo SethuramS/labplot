@@ -2,7 +2,7 @@
     File                 : DateTime2IntegerFilter.h
     Project              : AbstractColumn
     --------------------------------------------------------------------
-    Copyright            : (C) 2017 Stefan Gerlach (stefan.gerlach@uni.kn)
+    Copyright            : (C) 2017-2019 Stefan Gerlach (stefan.gerlach@uni.kn)
     Description          : Conversion filter QDateTime -> int (using Julian day).
 
  ***************************************************************************/
@@ -36,13 +36,13 @@ class DateTime2IntegerFilter : public AbstractSimpleFilter {
 	Q_OBJECT
 
 public:
-	int integerAt(int row) const override {
+	qint64 integerAt(int row) const override {
 		//DEBUG("integerAt()");
 		if (!m_inputs.value(0)) return 0;
 		QDateTime inputDate = m_inputs.value(0)->dateTimeAt(row);
 		if (!inputDate.isValid()) return 0;
 		QDateTime start(QDate(1900, 1, 1));
-		return int(start.daysTo(inputDate));
+		return qint64(start.daysTo(inputDate));
 	}
 
 	//! Return the data type of the column

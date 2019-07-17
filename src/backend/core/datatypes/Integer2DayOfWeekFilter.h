@@ -39,14 +39,14 @@ class Integer2DayOfWeekFilter : public AbstractSimpleFilter {
 public:
 	QDate dateAt(int row) const override {
 		if (!m_inputs.value(0)) return QDate();
-		int inputValue = m_inputs.value(0)->integerAt(row);
+		qint64 inputValue = m_inputs.value(0)->integerAt(row);
 		// Don't use Julian days here since support for years < 1 is bad
 		// Use 1900-01-01 instead (a Monday)
-		return QDate(1900,1,1).addDays(inputValue);
+		return QDate(1900, 1, 1).addDays(inputValue);
 	}
 	QTime timeAt(int row) const override {
 		Q_UNUSED(row)
-		return QTime(0,0,0,0);
+		return QTime(0, 0, 0, 0);
 	}
 	QDateTime dateTimeAt(int row) const override {
 		return QDateTime(dateAt(row), timeAt(row));

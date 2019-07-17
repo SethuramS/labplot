@@ -40,7 +40,7 @@ class Integer2DateTimeFilter : public AbstractSimpleFilter {
 public:
 	QDate dateAt(int row) const override {
 		if (!m_inputs.value(0)) return QDate();
-		int inputValue = m_inputs.value(0)->integerAt(row);
+		qint64 inputValue = m_inputs.value(0)->integerAt(row);
 		return QDate(1900, 1, 1 + inputValue);
 	}
 	QDateTime dateTimeAt(int row) const override {

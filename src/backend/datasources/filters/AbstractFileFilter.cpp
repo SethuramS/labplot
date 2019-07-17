@@ -56,8 +56,8 @@ AbstractColumn::ColumnMode AbstractFileFilter::columnMode(const QString& valueSt
 
 	// check if integer first
 	bool ok;
-	locale.toInt(valueString, &ok);
-	DEBUG("string " << valueString.toStdString() << ": toInt " << locale.toInt(valueString, &ok) << "?:" << ok);
+	locale.toLongLong(valueString, &ok);
+	DEBUG("string " << valueString.toStdString() << ": toLongLong " << locale.toLongLong(valueString, &ok) << "?:" << ok);
 	if (ok || isNan(valueString))
 		return AbstractColumn::Integer;
 

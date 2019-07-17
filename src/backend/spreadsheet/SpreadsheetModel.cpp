@@ -499,7 +499,7 @@ void SpreadsheetModel::activateFormulaMode(bool on) {
 	int cols = m_spreadsheet->columnCount();
 
 	if (rows > 0 && cols > 0)
-		emit dataChanged(index(0,0), index(rows-1,cols-1));
+		emit dataChanged(index(0, 0), index(rows-1, cols-1));
 }
 
 bool SpreadsheetModel::formulaModeActive() const {

@@ -441,17 +441,17 @@ void Spreadsheet::sortColumns(Column* leading, QVector<Column*> cols, bool ascen
 				}
 			case AbstractColumn::Integer: {
 					int rows = col->rowCount();
-					QVector< QPair<int, int> > map;
+					QVector< QPair<qint64, int> > map;
 
 					for (int j = 0; j < rows; j++)
-						map.append(QPair<int, int>(col->valueAt(j), j));
+						map.append(QPair<qint64, int>(col->valueAt(j), j));
 
 					if (ascending)
 						std::stable_sort(map.begin(), map.end(), CompareFunctions::doubleLess);
 					else
 						std::stable_sort(map.begin(), map.end(), CompareFunctions::doubleGreater);
 
-					QVectorIterator<QPair<int, int>> it(map);
+					QVectorIterator<QPair<qint64, int>> it(map);
 					Column* temp_col = new Column("temp", col->columnMode());
 
 					int k = 0;
@@ -556,17 +556,17 @@ void Spreadsheet::sortColumns(Column* leading, QVector<Column*> cols, bool ascen
 				break;
 			}
 		case AbstractColumn::Integer: {
-				QVector<QPair<int, int>> map;
+				QVector<QPair<qint64, int>> map;
 				int rows = leading->rowCount();
 
 				for (int i = 0; i < rows; i++)
-					map.append(QPair<int, int>(leading->valueAt(i), i));
+					map.append(QPair<qint64, int>(leading->valueAt(i), i));
 
 				if (ascending)
 					std::stable_sort(map.begin(), map.end(), CompareFunctions::integerLess);
 				else
 					std::stable_sort(map.begin(), map.end(), CompareFunctions::integerGreater);
-				QVectorIterator<QPair<int, int>> it(map);
+				QVectorIterator<QPair<qint64, int>> it(map);
 
 				for (auto* col : cols) {
 					Column *temp_col = new Column("temp", col->columnMode());
@@ -825,7 +825,7 @@ int Spreadsheet::prepareImport(QVector<void*>& dataContainer, AbstractFileFilter
 			break;
 		}
 		case AbstractColumn::Integer: {
-			auto* vector = static_cast<QVector<int>*>(column->data());
+			auto* vector = static_cast<QVector<qint64>*>(column->data());
 			vector->resize(actualRows);
 			dataContainer[n] = static_cast<void*>(vector);
 			break;

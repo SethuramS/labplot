@@ -46,11 +46,11 @@ public:
 	}
 	QDateTime dateTimeAt(int row) const override {
 		if (!m_inputs.value(0)) return QDateTime();
-		int inputValue = m_inputs.value(0)->integerAt(row);
+		qint64 inputValue = m_inputs.value(0)->integerAt(row);
 		// Don't use Julian days here since support for years < 1 is bad
 		// Use 1900-01-01 instead
-		QDate result_date = QDate(1900,1,1).addMonths(inputValue);
-		QTime result_time = QTime(0,0,0,0);
+		QDate result_date = QDate(1900, 1, 1).addMonths(inputValue);
+		QTime result_time = QTime(0, 0, 0, 0);
 		return QDateTime(result_date, result_time);
 	}
 

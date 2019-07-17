@@ -29,6 +29,7 @@
 
 #include "../AbstractSimpleFilter.h"
 #include <QLocale>
+#include "backend/lib/macros.h"
 
 //! Locale-aware conversion filter int -> QString.
 class Integer2StringFilter : public AbstractSimpleFilter {
@@ -46,7 +47,10 @@ public:
 		if (!m_inputs.value(0)) return QString();
 		if (m_inputs.value(0)->rowCount() <= row) return QString();
 
+		DEBUG("	m_inputs.value(0)->integerAt(row) = " << m_inputs.value(0)->integerAt(row))
+		//TODO: qint64
 		int inputValue = m_inputs.value(0)->integerAt(row);
+		DEBUG("	inputValue = " << inputValue)
 
 		return QLocale().toString(inputValue);
 	}
